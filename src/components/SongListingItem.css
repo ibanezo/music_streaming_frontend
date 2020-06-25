@@ -1,0 +1,32 @@
+.MuiDivider-inset {
+    margin-left: 8px !important;
+    margin-right: 8px !important;
+}
+ 
+.makeStyles-root-5 {
+    width: 100%;
+    max-width: 80% !important;
+    background-color: rgba(10,10,10, 0.2) !important;
+    /* background-color: #fff;
+    box-shadow: 0 0px 38px rgba(19, 11, 0, 1); */
+}
+
+.MuiIconButton-edgeEnd {
+    margin-right: 0px !important;
+}
+
+.MuiTypography-body2 {
+    line-height: 2.43 !important;
+}
+
+/* .MuiAvatar-root {
+    width: 55px !important;
+    height: 55px !important;
+} */
+
+.song_listing_item {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-top: 50px;
+}
