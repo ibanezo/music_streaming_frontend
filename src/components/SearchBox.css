@@ -1,4 +1,7 @@
 .search-box {
     display: inline-block;    
-    padding-top: 165px;
+    padding-top: 100px;
+}
+.MuiAutocomplete-root {
+    width: 600px !important;
 }

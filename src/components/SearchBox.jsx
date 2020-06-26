@@ -5,17 +5,10 @@ import './SearchBox.css';
 
 const filter = createFilterOptions();
 
-function SearchBox() {
-  // return (
-  //   <div>
-  //      <h1> Search here! </h1>
-  //      <div>
-  //        {/* <input type="text" placeholder="Search..." /> */}
-  //        <TextField id="filled-basic" className="input-field" label="Search song ... " variant="filled" />
-  //        <Search ></Search>
-  //      </div>
-  //   </div>
-  // );
+const SearchBox = (props) => {
+  const songs = props.items.map((item) => ({
+    title: item.name
+  }));
   const [value, setValue] = React.useState(null);
 
   return (
@@ -76,9 +69,5 @@ function SearchBox() {
     </div>
   );
 }
-const songs = [
-  { title: 'Colors - Michael Shaw', year: 1994 },
-  { title: 'Loce and Hate - M.M', year: 1994 },
-];
 
 export default SearchBox;
