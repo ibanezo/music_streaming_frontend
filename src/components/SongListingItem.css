@@ -31,3 +31,10 @@
     padding-top: 50px;
     margin-bottom: 35px;
 }
+.songs {
+    text-align: center;
+    top: -50%; 
+    left: -50%; 
+    width: 200%; 
+    height: 200%;
+  }
