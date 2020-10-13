@@ -9,7 +9,11 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
+// import AudioPlayer from '../AudioPlayer/AudioPlayer';
 import './SongListingItem.css';
+
+import AudioPlayer from 'react-h5-audio-player';
+import 'react-h5-audio-player/lib/styles.css';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -25,15 +29,32 @@ const useStyles = makeStyles((theme) => ({
 const SongListingItem = (props) => {
     const { items } = props;
     const classes = useStyles();
-    function playSong() {
-        // alert('Play sound');
-        console.log("play sound this", this);
-        // return (fetch("http://localhost:8080/songs")
-        //     .then(res => {
-        //         res.json();
-        //         console.log("res", res.json());
-        //     }));
-    };
+    const [song, setSong] = React.useState(null);
+    const [showComponent, setShowComponentFlag] = React.useState(false); // set this default state to null instead of false
+
+    function handleClick(item) {
+        setShowComponentFlag(true);
+        setSong(item);
+    }
+
+    // function playSong(item) {
+    //     console.log("play sound path", "http://localhost:8080/playSong/" + item.id);
+    //     console.log("play sound item", item);
+    //     console.log("play sound props", props);
+    //     const url = "http://localhost:8080/playSong/" + item.id;
+    //     // const response = fetch(url);
+    //     console.log("resp", url);
+    //     // fetch("http://localhost:8080/playSong/" + item.id)
+    //     //     .then(res => {
+    //     //         console.log("res 1 ", res);
+    //     //         // res.json();
+    //     //         // console.log("res", res.json());
+    //     //     });
+    //     return <audio>
+    //         <source src={url} type="audio/mpeg" />
+    //     </audio>;
+    // };
+
     return (
         <div className="song_listing_item">
             <List className={classes.root}>
@@ -55,19 +76,11 @@ const SongListingItem = (props) => {
                                         >
                                             {item.name}
                                         </Typography>
-                                        {/* <Typography
-                                    component="span"
-                                    variant="body2"
-                                    className={classes.inline}
-                                    color="textPrimary"
-                                >
-                                 {item.releaseDate}
-                                </Typography> */}
                                     </React.Fragment>
                                 }
                             />
                             <ListItemSecondaryAction>
-                                <IconButton edge="end" aria-label="play" onClick={playSong}>
+                                <IconButton edge="end" aria-label="play" onClick={() => handleClick(item)}>
                                     <PlayIcon />
                                 </IconButton>
                             </ListItemSecondaryAction>
@@ -93,12 +106,22 @@ const SongListingItem = (props) => {
                             }
                         />
                         <ListItemSecondaryAction>
-                            <IconButton edge="end" aria-label="play" onClick={playSong}>
+                            <IconButton edge="end" aria-label="play" onClick={() => handleClick(items)}>
                                 <PlayIcon />
                             </IconButton>
                         </ListItemSecondaryAction>
                     </ListItem>
                 }
+                {showComponent && song ?
+                    <div className="audio-player">
+                        <AudioPlayer
+                            autoPlay
+                            src="http://humanhighway.github.io/react-audio-player/assets/acadia.mp3"
+                            // src="http://localhost:8080/playSong/ + { song.id }"
+                            onPlay={e => console.log("onPlay")}
+                        />
+                    </div>
+                    : null}
             </List>
         </div>
     );

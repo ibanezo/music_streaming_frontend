@@ -12,7 +12,8 @@
     "babel-eslint": "10.1.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-h5-audio-player": "^3.4.1",
+    "react-scripts": "^3.4.3"
   },
   "scripts": {
     "start": "react-scripts start",
