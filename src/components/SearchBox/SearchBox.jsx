@@ -26,8 +26,6 @@ const SearchBox = (props) => {
       <Autocomplete
         value={value}
         onChange={(event, newValue) => {
-          console.log("new value :: ", newValue);
-          console.log("value :: ", value);
           handleClick(newValue);
           if (typeof newValue === 'string') {
             setValue({

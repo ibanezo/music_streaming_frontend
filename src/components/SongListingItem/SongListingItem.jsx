@@ -9,7 +9,6 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
-// import AudioPlayer from '../AudioPlayer/AudioPlayer';
 import './SongListingItem.css';
 
 import AudioPlayer from 'react-h5-audio-player';
@@ -36,24 +35,6 @@ const SongListingItem = (props) => {
         setShowComponentFlag(true);
         setSong(item);
     }
-
-    // function playSong(item) {
-    //     console.log("play sound path", "http://localhost:8080/playSong/" + item.id);
-    //     console.log("play sound item", item);
-    //     console.log("play sound props", props);
-    //     const url = "http://localhost:8080/playSong/" + item.id;
-    //     // const response = fetch(url);
-    //     console.log("resp", url);
-    //     // fetch("http://localhost:8080/playSong/" + item.id)
-    //     //     .then(res => {
-    //     //         console.log("res 1 ", res);
-    //     //         // res.json();
-    //     //         // console.log("res", res.json());
-    //     //     });
-    //     return <audio>
-    //         <source src={url} type="audio/mpeg" />
-    //     </audio>;
-    // };
 
     return (
         <div className="song_listing_item">
@@ -117,7 +98,6 @@ const SongListingItem = (props) => {
                         <AudioPlayer
                             autoPlay
                             src={"http://localhost:8080/play/song/" + song.id}
-                            onPlay={e => console.log("onPlay")}
                         />
                     </div>
                     : null}
