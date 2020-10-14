@@ -116,8 +116,7 @@ const SongListingItem = (props) => {
                     <div className="audio-player">
                         <AudioPlayer
                             autoPlay
-                            src="http://humanhighway.github.io/react-audio-player/assets/acadia.mp3"
-                            // src="http://localhost:8080/playSong/ + { song.id }"
+                            src={"http://localhost:8080/play/song/" + song.id}
                             onPlay={e => console.log("onPlay")}
                         />
                     </div>
